@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!--  通配符 -->
+    <package name="struts_method2" extends="struts-default" namespace="/method">
+       <action name="goods_*" class="com.lulutan.struts2.MethodAction" method="{1}">
+           <!--  允许的方法  -->
+           <allowed-methods>add,delete,update,find</allowed-methods>
+       </action>
+    </package>
+</struts>

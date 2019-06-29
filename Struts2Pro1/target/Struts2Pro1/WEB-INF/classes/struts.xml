@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!--  引入另一个配置文件 -->
+   <!-- <include file="struts1.xml"/>-->
+    <include file="struts_method.xml"/>
+    <include file="struts_method2.xml"/>
+
+    <!--  默认常量都定义在default.properties中  可在struts.xml中修改  -->
+    <!--<constant name="struts.action.extension" value="action"/>-->   <!-- 此修改表明请求必须以.action 结尾 -->
+
+
+<!--  package  更好的管理action-->
+
+    <!--   package属性
+    name：包的名称，不重名即可
+    extends ： 继承包，通常为struts-default  在这个包中，定义了很多拦截器，继承之后action就有了这些功能
+    namespace: 名称空间  namespace + action中的名字共同决定访问路径
+
+    -->
+    <package name="struts" extends="struts-default" namespace="/huoli">
+
+        <!--  action 的属性及配置-->
+        <!--
+         name     与包中的namespace 共同决定访问路径
+         class    类的全路径
+         method   使用类中的哪个方法
+        -->
+        <action name="hello" class="com.lulutan.struts2.HelloAction">
+            <!--配置结果页-->
+            <result name="success">/success.jsp</result>
+        </action>
+
+        <action name="hello2" class="com.lulutan.struts2.HelloAction2">
+            <result name="success">/success.jsp</result>
+        </action>
+
+        <action name="hello3" class="com.lulutan.struts2.HelloAction3">
+            <result name="success">/success.jsp</result>
+        </action>
+
+    </package>
+</struts>
